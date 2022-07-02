@@ -9,7 +9,7 @@ const createError = require("http-errors");
 const logger = require("morgan");
 
 const productsRouter = require("./routers/productsRouter");
-const usersRouter = require("./routers/usersRouter");
+const userRouter = require("./routers/userRouter");
 
 dotenv.config();
 
@@ -41,7 +41,7 @@ app.use(cors());
 
 /* define router */
 app.use("/api/products", productsRouter);
-app.use("/api/users", usersRouter);
+app.use("/api/users", userRouter);
 /*app.use("/api/orders", ordersRouter);*/
 
 app.get("/", (req, res) =>

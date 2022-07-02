@@ -6,9 +6,9 @@ const User = require("../models/userModel");
 const users = require("../data/dummyUser");
 const { generateToken } = require("../utils");
 
-const usersRouter = express.Router();
+const userRouter = express.Router();
 
-usersRouter.get("/seed", async (req, res) => {
+userRouter.get("/seed", async (req, res) => {
   const createdUsers = await User.insertMany(users);
   res.send({ createdUsers });
 });
@@ -59,4 +59,4 @@ userRouter.get("/:id", async (req, res) => {
   }
 });
 
-module.exports = usersRouter;
+module.exports = userRouter;
