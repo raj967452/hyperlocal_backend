@@ -6,6 +6,7 @@ const productsRouter = express.Router();
 
 productsRouter.get("/", async (req, res) => {
   try {
+    
     const pageOptions = {
       page: parseInt(req.query.page) - 1 || 0,
       limit: parseInt(req.query.limit) || 10,
