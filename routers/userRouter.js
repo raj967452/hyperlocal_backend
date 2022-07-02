@@ -1,6 +1,5 @@
-const bcryptjs = require("bcryptjs");
+const bcrypt = require("bcryptjs");
 const express = require("express");
-const expressAsyncHandler = require("express-async-handler");
 
 const User = require("../models/userModel");
 const users = require("../data/dummyUser");
