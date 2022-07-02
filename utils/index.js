@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-export const generateToken = (user) => {
+const generateToken = (user) => {
   // For creating JSON web token for particular user
 
   return jwt.sign(
@@ -16,7 +16,7 @@ export const generateToken = (user) => {
   );
 };
 
-export const isAuth = (req, res, next) => {
+const isAuth = (req, res, next) => {
   const authorization = req.headers.authorization;
 
   if (authorization) {
@@ -37,3 +37,5 @@ export const isAuth = (req, res, next) => {
     res.status(401).send({ message: "No token" });
   }
 };
+
+module.exports = { generateToken, isAuth };
