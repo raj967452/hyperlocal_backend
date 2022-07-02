@@ -11,7 +11,7 @@ productsRouter.get("/", async (req, res) => {
       limit: parseInt(req.query.limit) || 10,
     };
     const products = await Products.find()
-      .sort({ dateCreated: 1, dateModified: -1 })
+      .sort({ createdAt: 1, updatedAt: -1 })
       .skip(pageOptions.page * pageOptions.limit)
       .limit(pageOptions.limit)
       .exec();
