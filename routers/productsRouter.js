@@ -6,7 +6,15 @@ const productsRouter = express.Router();
 
 productsRouter.get("/", async (req, res) => {
   try {
-    const products = await Products.find({});
+    const pageOptions = {
+      page: parseInt(req.query.page) - 1 || 0,
+      limit: parseInt(req.query.limit) || 10,
+    };
+    const products = await Products.find()
+      .sort({ dateCreated: 1, dateModified: -1 })
+      .skip(pageOptions.page * pageOptions.limit)
+      .limit(pageOptions.limit)
+      .exec();
     console.log(products);
     res.send(products);
   } catch (err) {
